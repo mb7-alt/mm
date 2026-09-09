@@ -23,8 +23,8 @@ def admin_api_required():
 @api_bp.route('/login', methods=['POST', 'GET'])
 def api_login():
     dados = request.get_json() or {}
-    usuario_digitado = dados.get('username')
-    senha_digitada = dados.get('password')
+    usuario_digitado = dados.get('email')
+    senha_digitada = dados.get('senha')
 
     if not usuario_digitado or not senha_digitada:
         return jsonify({'erro': 'Usuário e senha são obrigatórios'}), 400
